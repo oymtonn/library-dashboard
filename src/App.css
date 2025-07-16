@@ -1,0 +1,27 @@
+.app {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .search-bar, .filter-select {
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .book-row {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .stats {
+    margin: 20px 0;
+  }
+  
+  .book-list {
+    margin-top: 10px;
+  }
+  
