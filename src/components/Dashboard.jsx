@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import BookRow from './BookRow';
 import SearchBar from './SearchBar';
 import FilterSelect from './FilterSelect';
-import { calculateStats } from '../utils/stats';
+import { calculateStats } from '../utils/stats';    
+import BookCharts from './BookCharts';
 
 const Dashboard = () => {
   const [books, setBooks] = useState([]);
@@ -37,6 +38,18 @@ const Dashboard = () => {
 
   const stats = calculateStats(filteredBooks);
 
+  const topBooks = books
+  .filter(book => book.edition_count)
+  .sort((a, b) => b.edition_count - a.edition_count)
+  .slice(0, 5);
+
+  for (var i = 0; i < 5; i++){
+    console.log("Top editions: ", topBooks[i])
+  }
+
+  
+
+
   return (
     <div>
       <SearchBar setQuery={setQuery} />
@@ -53,6 +66,9 @@ const Dashboard = () => {
           <BookRow key={index} book={book} />
         ))}
       </div>
+      <BookCharts books={filteredBooks} />
+
+      
     </div>
   );
 };

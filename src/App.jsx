@@ -1,14 +1,19 @@
-import React from 'react';
-import Dashboard from './components/Dashboard';
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
+import Dashboard from './components/Dashboard';
+import BookDetail from './components/BookDetail';
+import Sidebar from './components/Sidebar';
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <h1>OpenLibrary Book Dashboard</h1>
-      <Dashboard />
+    <div className="app-layout">
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/book/:bookKey" element={<BookDetail />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
